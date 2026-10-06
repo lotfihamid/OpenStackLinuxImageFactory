@@ -56,8 +56,8 @@ You also need a working OpenStack environment with valid credentials (e.g., `clo
 Simply download the script and make it executable:
 
 ```bash
-curl -O https://your-repo/image-factory.sh
-chmod +x image-factory.sh
+curl -O https://your-repo/linux_Image_Factory.sh
+chmod +x linux_Image_Factory.sh
 ```
 
 Place it anywhere in your `PATH` or run it directly.
@@ -69,7 +69,7 @@ Place it anywhere in your `PATH` or run it directly.
 ### Non‑interactive (classic)
 
 ```bash
-./image-factory.sh [OPTIONS] <IMAGE_NAME> <VERSION> [DOWNLOAD_URL]
+./linux_Image_Factory.sh [OPTIONS] <IMAGE_NAME> <VERSION> [DOWNLOAD_URL]
 ```
 
 - `IMAGE_NAME` – Name of the image in Glance (spaces allowed; they will be replaced with `_` in file paths)
@@ -79,7 +79,7 @@ Place it anywhere in your `PATH` or run it directly.
 ### Interactive
 
 ```bash
-./image-factory.sh -i
+./linux_Image_Factory.sh -i
 ```
 
 The script will guide you through all parameters step by step.
@@ -106,7 +106,7 @@ The script will guide you through all parameters step by step.
 ### 1. Download Ubuntu 22.04, verify checksum, upload as public
 
 ```bash
-./image-factory.sh \
+./linux_Image_Factory.sh \
   --checksum-url https://cloud-images.ubuntu.com/releases/22.04/release/SHA256SUMS \
   --os-distro ubuntu \
   --visibility public \
@@ -117,7 +117,7 @@ The script will guide you through all parameters step by step.
 ### 2. Use a local Debian image, upload as private
 
 ```bash
-./image-factory.sh \
+./linux_Image_Factory.sh \
   --local-file /data/images/debian-12-generic-amd64.qcow2 \
   --os-distro debian \
   --visibility private \
@@ -127,13 +127,13 @@ The script will guide you through all parameters step by step.
 ### 3. Interactive mode
 
 ```bash
-./image-factory.sh -i
+./linux_Image_Factory.sh -i
 ```
 
 ### 4. Build only, no upload
 
 ```bash
-./image-factory.sh \
+./linux_Image_Factory.sh \
   --no-upload \
   --os-distro centos \
   "CentOS Stream 9" "9" \
